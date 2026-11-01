@@ -17,8 +17,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.MapGet("/posts", async (int? userId, IBlogApi api) =>
-//     await api.GetPostsAsync(userId));
+app.MapGet("/posts", async (int? userId, IBlogApi api) =>
+    await api.GetPostsAsync(userId));
 
 // app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
 //     await api.GetPostAsync(id));
