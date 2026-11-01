@@ -17,23 +17,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/posts", async (int? userId, IBlogApi api) =>
-    await api.GetPostsAsync(userId));
+// app.MapGet("/posts", async (int? userId, IBlogApi api) =>
+//     await api.GetPostsAsync(userId));
 
-app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
-    await api.GetPostAsync(id));
+// app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
+//     await api.GetPostAsync(id));
 
 app.MapGet("/posts/{id:int}/comments", async (int id, IBlogApi api) =>
     await api.GetPostCommentsAsync(id));
 
-app.MapPost("/posts", async ([FromBody] Post post, IBlogApi api) =>
-    await api.CreatePostAsync(post));
+// app.MapPost("/posts", async ([FromBody] Post post, IBlogApi api) =>
+//     await api.CreatePostAsync(post));
 
-app.MapPut("/posts/{id:int}", async (int id, [FromBody] Post post, IBlogApi api) =>
-    await api.UpdatePostAsync(id, post));
+// app.MapPut("/posts/{id:int}", async (int id, [FromBody] Post post, IBlogApi api) =>
+//     await api.UpdatePostAsync(id, post));
 
-app.MapDelete("/posts/{id:int}", async (int id, IBlogApi api) =>
-    await api.DeletePostAsync(id));
+// app.MapDelete("/posts/{id:int}", async (int id, IBlogApi api) =>
+//     await api.DeletePostAsync(id));
 
 app.UseHttpsRedirection();
 
