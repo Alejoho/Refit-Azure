@@ -20,8 +20,8 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/posts", async (int? userId, IBlogApi api) =>
     await api.GetPostsAsync(userId));
 
-// app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
-//     await api.GetPostAsync(id));
+app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
+    await api.GetPostAsync(id));
 
 app.MapGet("/get", () => "Hello World");
 
