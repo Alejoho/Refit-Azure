@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths-ignore:
+      - '.github/**'
 
 env:
   RESOURCE_GROUP: container-rg
@@ -39,6 +41,8 @@ jobs:
           tags: |
             ${{ steps.image.outputs.name }}:${{ github.sha }}
           file: Refit.Api/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   deploy-to-azure:
     runs-on: ubuntu-latest

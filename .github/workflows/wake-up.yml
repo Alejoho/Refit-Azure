@@ -10,7 +10,6 @@ env:
 
 jobs:
   ping:
-    if: ${{ vars.WAKE_UP_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Ping application health endpoint
