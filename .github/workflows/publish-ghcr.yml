@@ -2,8 +2,8 @@ name: Deploy image to Azure Container Apps
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 
 env:
   RESOURCE_GROUP: container-rg
