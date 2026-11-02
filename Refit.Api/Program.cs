@@ -23,6 +23,8 @@ app.MapGet("/posts", async (int? userId, IBlogApi api) =>
 // app.MapGet("/posts/{id:int}", async (int id, IBlogApi api) =>
 //     await api.GetPostAsync(id));
 
+app.MapGet("/get", () => "Hello World");
+
 app.MapGet("/posts/{id:int}/comments", async (int id, IBlogApi api) =>
     await api.GetPostCommentsAsync(id));
 
