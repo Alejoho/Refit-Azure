@@ -1,0 +1,17 @@
+name: wake-up
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 min
+  workflow_dispatch:
+
+env:
+  HEALTHCHECK_URL: ${{ vars.WAKE_UP_URL }}
+
+jobs:
+  ping:
+    if: ${{ vars.WAKE_UP_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping application health endpoint
+        run: curl -fsS --retry 3 --max-time 60 "$HEALTHCHECK_URL"
